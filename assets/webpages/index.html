@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body style="background-color: aqua;">
+    <form id="your-form-id" action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6LdGPSUqAAAAAG1jcB4rp33Tt7i9BvAwOTlR9XoK"
+            data-callback="captchaCallback"></div>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function captchaCallback(response) {
+            // Handle the reCAPTCHA response here
+            console.log('reCAPTCHA response:', response);
+            if (typeof Captcha !== "undefined") {
+                Captcha.postMessage(response);
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body style="background-color: aqua;">
+    <div style="height: 60px;"></div>
+    <form action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6LdGPSUqAAAAAG1jcB4rp33Tt7i9BvAwOTlR9XoK" data-callback="captchaCallback">
+        </div>
+    </form>
+    <script>
+        function captchaCallback(response) {
+            // Send the reCAPTCHA response to Dart via the JavaScript channel
+            if (typeof Captcha !== "undefined") {
+                Captcha.postMessage(response);
+            }
+        }
+    </script>
+</body>
+
+</html> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA</title>
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            /* Adjust the width as needed */
+            padding: 20px;
+            box-sizing: border-box;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .g-recaptcha {
+            margin: 20px 0;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>reCAPTCHA Verification</h1>
+        <form action="?" method="POST">
+            <div class="g-recaptcha" data-sitekey="6LdGPSUqAAAAAG1jcB4rp33Tt7i9BvAwOTlR9XoK"
+                data-callback="captchaCallback"></div>
+        </form>
+    </div>
+    <script>
+        function captchaCallback(response) {
+            // Handle the captcha response
+            console.log('Captcha response:', response);
+            if (typeof Captcha !== "undefined") {
+                Captcha.postMessage(response);
+            }
+        }
+    </script>
+</body>
+
+</html> -->
